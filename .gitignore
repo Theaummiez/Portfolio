@@ -1,0 +1,18 @@
+# Dependencies
+web/node_modules/
+web/.next/
+web/out/
+
+# Python
+api/__pycache__/
+api/.venv/
+api/data/*.db
+*.pyc
+
+# Env
+.env
+.env.local
+web/.env.local
+
+# OS
+.DS_Store
