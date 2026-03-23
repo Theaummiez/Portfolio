@@ -1,6 +1,6 @@
 """
-Seed the database with initial portfolio data.
-Run: python seed_data.py
+Seed the database with Tomy's real portfolio data.
+Run: python3 seed_data.py
 """
 from app.database import SessionLocal, engine, Base
 from app.models.models import Project, Skill, Experience, PersonalInfo
@@ -17,19 +17,19 @@ def seed():
         return
 
     info = PersonalInfo(
-        name="Alex Martin",
-        title="Future Software Engineer",
-        subtitle="Building tomorrow's solutions today",
+        name="Tomy Tavanae-Bouteilley",
+        title="Étudiant Ingénieur Informatique & Cybersécurité",
+        subtitle="Recherche alternance 2026–2029",
         bio=(
-            "Passionate engineering student with a love for clean code, "
-            "innovative solutions, and cutting-edge technology. I specialize "
-            "in full-stack development, systems design, and creating impactful "
-            "digital experiences."
+            "Étudiant en cycle préparatoire du Diplôme d'ingénieur électronique "
+            "et informatique (grade de Master) à l'ESEO, actuellement en mobilité "
+            "internationale à l'USTH (Vietnam). Je recherche une alternance longue "
+            "durée (2026–2029) dans le domaine de la Cybersécurité."
         ),
-        email="alex.martin@email.com",
-        github_url="https://github.com",
-        linkedin_url="https://linkedin.com",
-        location="Montreal, Canada",
+        email="tomy.tavanaebouteilley@reseau.eseo.fr",
+        github_url="https://github.com/Theaummiez",
+        linkedin_url="https://www.linkedin.com/in/tomy-tavanae-bouteilley",
+        location="Dijon, France",
         resume_url="#",
         avatar_url="/images/avatar.svg",
     )
@@ -37,147 +37,142 @@ def seed():
 
     projects_data = [
         Project(
-            title="CloudSync Platform",
-            description="A distributed cloud synchronization platform with real-time collaboration features.",
-            long_description="Built a scalable cloud platform that enables real-time file synchronization and collaboration across distributed teams.",
-            tags=["React", "Node.js", "PostgreSQL", "Redis", "Docker"],
-            github_url="https://github.com",
-            live_url="https://example.com",
+            title="Extension d'Assistance Intelligente",
+            description="Extension navigateur pour analyser des questions et générer des réponses automatisées via API.",
+            long_description="Développement d'une extension navigateur avec appels API asynchrones, gestion des réponses dynamiques, injection DOM, raccourcis clavier et permissions Manifest v3.",
+            tags=["JavaScript", "API REST", "Manifest v3", "DOM", "Chrome Extension"],
+            github_url="https://github.com/Theaummiez",
+            live_url="#",
             featured=True,
             sort_order=1,
         ),
         Project(
-            title="AI Code Assistant",
-            description="An intelligent code completion and review tool powered by machine learning.",
-            long_description="Developed an AI-powered code assistant that provides intelligent suggestions and automated code reviews.",
-            tags=["Python", "TensorFlow", "FastAPI", "React", "TypeScript"],
-            github_url="https://github.com",
-            live_url="https://example.com",
+            title="Distributeur Automatique de Cartes",
+            description="Conception et développement d'un distributeur automatisé de cartes avec Arduino.",
+            long_description="Projet ESEO : programmation C/C++ pour piloter moteurs et servo-moteurs, intégration de capteurs et actionneurs, logique de distribution, tests et calibration.",
+            tags=["C/C++", "Arduino", "Capteurs", "Servo-moteurs", "Électronique"],
+            github_url="https://github.com/Theaummiez",
+            live_url="#",
             featured=True,
             sort_order=2,
         ),
         Project(
-            title="Smart IoT Dashboard",
-            description="Real-time monitoring dashboard for IoT devices with predictive analytics.",
-            long_description="Created a comprehensive IoT monitoring solution with real-time data visualization and predictive maintenance alerts.",
-            tags=["Next.js", "MQTT", "InfluxDB", "Grafana", "Python"],
-            github_url="https://github.com",
-            live_url="https://example.com",
+            title="Mini-Jeu Unity",
+            description="Développement d'un mini-jeu avec mécaniques de gameplay, collisions et scripts en C#.",
+            long_description="Projet personnel sous Unity : mécaniques de gameplay, gestion des collisions, scripting en C# et design de niveaux.",
+            tags=["C#", "Unity", "Game Dev", "POO", "Scripting"],
+            github_url="https://github.com/Theaummiez",
+            live_url="#",
             featured=True,
             sort_order=3,
-        ),
-        Project(
-            title="CryptoTracker",
-            description="Cryptocurrency portfolio tracker with real-time market data and analytics.",
-            long_description="A full-featured crypto portfolio management app with real-time price tracking.",
-            tags=["React Native", "Node.js", "WebSocket", "MongoDB"],
-            github_url="https://github.com",
-            live_url="https://example.com",
-            featured=False,
-            sort_order=4,
-        ),
-        Project(
-            title="DevOps Pipeline Tool",
-            description="CI/CD pipeline management tool with automated testing and deployment.",
-            long_description="Automated CI/CD pipeline builder with visual workflow editor.",
-            tags=["Go", "Docker", "Kubernetes", "Terraform", "AWS"],
-            github_url="https://github.com",
-            live_url="https://example.com",
-            featured=False,
-            sort_order=5,
-        ),
-        Project(
-            title="EcoTrack App",
-            description="Carbon footprint tracking application with sustainability recommendations.",
-            long_description="A mobile-first app helping users track and reduce their carbon footprint.",
-            tags=["Flutter", "Firebase", "Python", "ML Kit"],
-            github_url="https://github.com",
-            live_url="https://example.com",
-            featured=False,
-            sort_order=6,
         ),
     ]
     db.add_all(projects_data)
 
     skills_data = [
-        Skill(name="React / Next.js", icon="⚛️", level=90, category="Frontend", sort_order=1),
-        Skill(name="TypeScript", icon="📘", level=88, category="Frontend", sort_order=2),
-        Skill(name="Tailwind CSS", icon="🎨", level=92, category="Frontend", sort_order=3),
-        Skill(name="HTML / CSS", icon="🌐", level=95, category="Frontend", sort_order=4),
-        Skill(name="Python", icon="🐍", level=88, category="Backend", sort_order=1),
-        Skill(name="Node.js", icon="🟢", level=85, category="Backend", sort_order=2),
-        Skill(name="FastAPI", icon="⚡", level=82, category="Backend", sort_order=3),
-        Skill(name="PostgreSQL", icon="🐘", level=80, category="Backend", sort_order=4),
-        Skill(name="Docker", icon="🐳", level=78, category="DevOps", sort_order=1),
-        Skill(name="Git / GitHub", icon="🔀", level=90, category="DevOps", sort_order=2),
-        Skill(name="AWS / Cloud", icon="☁️", level=72, category="DevOps", sort_order=3),
-        Skill(name="Linux", icon="🐧", level=82, category="DevOps", sort_order=4),
-        Skill(name="TensorFlow", icon="🧠", level=65, category="AI/ML", sort_order=1),
-        Skill(name="Data Analysis", icon="📊", level=75, category="AI/ML", sort_order=2),
-        Skill(name="C / C++", icon="⚙️", level=78, category="Systems", sort_order=1),
-        Skill(name="System Design", icon="🏗️", level=70, category="Systems", sort_order=2),
+        Skill(name="Python", icon="🐍", level=80, category="Développement", sort_order=1),
+        Skill(name="C#", icon="🎮", level=72, category="Développement", sort_order=2),
+        Skill(name="JavaScript (ES6+)", icon="⚡", level=78, category="Développement", sort_order=3),
+        Skill(name="C / C++ (POO)", icon="⚙️", level=75, category="Développement", sort_order=4),
+        Skill(name="React", icon="⚛️", level=70, category="Web", sort_order=1),
+        Skill(name="Next.js", icon="▲", level=65, category="Web", sort_order=2),
+        Skill(name="HTML5 / CSS3", icon="🌐", level=85, category="Web", sort_order=3),
+        Skill(name="APIs REST", icon="🔗", level=72, category="Web", sort_order=4),
+        Skill(name="Git / GitHub", icon="🔀", level=82, category="Outils", sort_order=1),
+        Skill(name="Visual Studio Code", icon="💻", level=88, category="Outils", sort_order=2),
+        Skill(name="Unity", icon="🎮", level=60, category="Outils", sort_order=3),
+        Skill(name="Linux", icon="🐧", level=55, category="Outils", sort_order=4),
+        Skill(name="Xcode", icon="🍎", level=45, category="Outils", sort_order=5),
+        Skill(name="Sécurité Applicative", icon="🛡️", level=55, category="Cybersécurité", sort_order=1),
+        Skill(name="Vulnérabilités (SQL Injection...)", icon="🔓", level=50, category="Cybersécurité", sort_order=2),
+        Skill(name="PicoCTF / TryHackMe", icon="🏴", level=50, category="Cybersécurité", sort_order=3),
     ]
     db.add_all(skills_data)
 
     experiences_data = [
         Experience(
-            title="Software Engineering Intern",
-            company="TechCorp Inc.",
-            location="Montreal, QC",
-            period="May 2025 – Aug 2025",
+            title="Agent de tri",
+            company="DPD",
+            location="France",
+            period="2024 – 2025 (CDD – 1 mois)",
             description=[
-                "Developed RESTful APIs serving 10K+ daily requests using FastAPI and PostgreSQL",
-                "Implemented automated testing pipeline reducing bug reports by 40%",
-                "Collaborated with cross-functional team of 8 engineers on microservices architecture",
+                "Tri et dispatch de colis dans un environnement logistique à cadence élevée",
+                "Respect des délais et des normes de sécurité",
+                "Travail en équipe dans un contexte opérationnel dynamique",
             ],
             type="work",
             sort_order=1,
         ),
         Experience(
-            title="Full Stack Developer",
-            company="StartupLab",
-            location="Remote",
-            period="Jan 2025 – Apr 2025",
+            title="Opérateur de conditionnement",
+            company="Joseph Drouhin",
+            location="Beaune, France",
+            period="2023 – 2024 (CDD – 1 mois)",
             description=[
-                "Built responsive web applications using React, Next.js, and Tailwind CSS",
-                "Designed and implemented database schemas for complex business logic",
-                "Mentored 3 junior developers on best practices and code review",
+                "Travail en équipe en environnement industriel",
+                "Respect strict des procédures et des cadences de production",
+                "Contrôle qualité et conditionnement",
             ],
             type="work",
             sort_order=2,
         ),
         Experience(
-            title="B.Eng Software Engineering",
-            company="Polytechnique Montreal",
-            location="Montreal, QC",
-            period="2022 – 2026",
+            title="Vendanges",
+            company="Domaines viticoles (Meursault)",
+            location="Meursault, France",
+            period="2023 – 2025",
             description=[
-                "Relevant coursework: Data Structures, Algorithms, Operating Systems, Database Systems",
-                "Dean's List — GPA: 3.8/4.0",
-                "Active member of the Software Engineering Student Association",
+                "Domaine Pascal Prunier-Bonheur & Domaine Renaud Boyer",
+                "Travail physique en équipe",
+                "Rigueur, endurance et engagement",
+            ],
+            type="work",
+            sort_order=3,
+        ),
+        Experience(
+            title="Diplôme d'ingénieur (grade de Master)",
+            company="ESEO",
+            location="Angers, France",
+            period="Depuis 2024",
+            description=[
+                "Cycle préparatoire intégré",
+                "Formation généraliste en informatique, mathématiques et sciences de l'ingénieur",
+                "Spécialisation visée : Cybersécurité",
             ],
             type="education",
             sort_order=1,
         ),
         Experience(
-            title="DEC in Computer Science",
-            company="CÉGEP de Montréal",
-            location="Montreal, QC",
-            period="2020 – 2022",
+            title="Mobilité Internationale",
+            company="USTH – University of Science and Technology of Hanoi",
+            location="Hanoï, Vietnam",
+            period="2025 – 2026",
             description=[
-                "Foundation in programming, mathematics, and computer science principles",
-                "Led team project: automated inventory management system",
-                "Graduated with Honours",
+                "Suivi des enseignements en anglais",
+                "Formation scientifique dans un environnement international",
+                "Développement de l'autonomie et adaptation interculturelle",
             ],
             type="education",
             sort_order=2,
+        ),
+        Experience(
+            title="Baccalauréat Général – Mention Assez Bien",
+            company="Lycée Clos Maire",
+            location="Beaune, France",
+            period="2024",
+            description=[
+                "Spécialités : Mathématiques & NSI (Numérique et Sciences Informatiques)",
+                "Mention Assez Bien",
+            ],
+            type="education",
+            sort_order=3,
         ),
     ]
     db.add_all(experiences_data)
 
     db.commit()
     db.close()
-    print("Database seeded successfully!")
+    print("Database seeded successfully with Tomy's data!")
 
 
 if __name__ == "__main__":

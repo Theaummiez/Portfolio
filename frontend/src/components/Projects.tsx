@@ -25,11 +25,10 @@ export default function Projects() {
             Portfolio
           </span>
           <h2 className="section-title text-white">
-            Featured <span className="gradient-text">Projects</span>
+            Mes <span className="gradient-text">Projets</span>
           </h2>
           <p className="section-subtitle mt-4">
-            A selection of projects that showcase my skills and passion for
-            building impactful software solutions.
+            Une sélection de projets techniques réalisés durant ma formation et à titre personnel.
           </p>
         </motion.div>
 
@@ -42,14 +41,11 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
               className="glass-card-hover group overflow-hidden flex flex-col"
             >
-              {/* Project image placeholder */}
               <div className="relative h-48 bg-gradient-to-br from-primary-900/40 to-dark-800 overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-2xl bg-primary-500/20 border border-primary-500/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                     <span className="text-3xl">
-                      {project.id <= 3
-                        ? ["🚀", "🤖", "📊"][project.id - 1]
-                        : ["💰", "⚙️", "🌿"][project.id - 4]}
+                      {["🧩", "🤖", "🎮"][project.id - 1] ?? "💡"}
                     </span>
                   </div>
                 </div>
@@ -57,11 +53,10 @@ export default function Projects() {
 
                 {project.featured && (
                   <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-xs font-medium">
-                    Featured
+                    Projet phare
                   </div>
                 )}
 
-                {/* Hover overlay with links */}
                 <div className="absolute inset-0 bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                   <a
                     href={project.github}
@@ -71,18 +66,19 @@ export default function Projects() {
                   >
                     <Github className="w-5 h-5" />
                   </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl bg-dark-800 border border-dark-600 flex items-center justify-center text-dark-300 hover:text-white hover:border-primary-500/50 transition-all duration-300"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                  </a>
+                  {project.live !== "#" && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-xl bg-dark-800 border border-dark-600 flex items-center justify-center text-dark-300 hover:text-white hover:border-primary-500/50 transition-all duration-300"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  )}
                 </div>
               </div>
 
-              {/* Content */}
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary-300 transition-colors">
                   {project.title}
@@ -91,7 +87,6 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
@@ -107,7 +102,6 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Show more button */}
         {!showAll && projects.length > 3 && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -119,7 +113,7 @@ export default function Projects() {
               onClick={() => setShowAll(true)}
               className="btn-secondary group"
             >
-              View All Projects
+              Voir tous les projets
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>

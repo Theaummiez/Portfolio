@@ -65,16 +65,15 @@ export default function Contact() {
             Contact
           </span>
           <h2 className="section-title text-white">
-            Let&apos;s Work <span className="gradient-text">Together</span>
+            Travaillons <span className="gradient-text">Ensemble</span>
           </h2>
           <p className="section-subtitle mt-4">
-            Have a project in mind or want to chat? Feel free to reach out. I
-            &apos;m always open to new opportunities and collaborations.
+            Un projet en tête ou une opportunité d&apos;alternance ? N&apos;hésitez pas
+            à me contacter. Je suis ouvert aux nouvelles collaborations.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-          {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -83,7 +82,7 @@ export default function Contact() {
           >
             <div className="glass-card p-6 space-y-6">
               <h3 className="text-white font-semibold text-lg">
-                Contact Info
+                Mes coordonnées
               </h3>
 
               <div className="space-y-4">
@@ -96,7 +95,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-dark-500 text-xs">Email</p>
-                    <p className="text-dark-200 text-sm group-hover:text-primary-400 transition-colors">
+                    <p className="text-dark-200 text-sm group-hover:text-primary-400 transition-colors break-all">
                       {personalInfo.email}
                     </p>
                   </div>
@@ -107,7 +106,7 @@ export default function Contact() {
                     <MapPin className="w-5 h-5 text-accent-400" />
                   </div>
                   <div>
-                    <p className="text-dark-500 text-xs">Location</p>
+                    <p className="text-dark-500 text-xs">Localisation</p>
                     <p className="text-dark-200 text-sm">
                       {personalInfo.location}
                     </p>
@@ -116,7 +115,7 @@ export default function Contact() {
               </div>
 
               <div className="border-t border-dark-700/50 pt-6">
-                <p className="text-dark-500 text-xs mb-4">Find me on</p>
+                <p className="text-dark-500 text-xs mb-4">Retrouvez-moi sur</p>
                 <div className="flex gap-3">
                   <a
                     href={personalInfo.github}
@@ -139,7 +138,6 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Contact form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -153,7 +151,7 @@ export default function Contact() {
                     htmlFor="name"
                     className="block text-dark-300 text-sm font-medium mb-2"
                   >
-                    Name
+                    Nom
                   </label>
                   <input
                     id="name"
@@ -164,7 +162,7 @@ export default function Contact() {
                       setFormState({ ...formState, name: e.target.value })
                     }
                     className="w-full px-4 py-3 rounded-xl bg-dark-800/50 border border-dark-700/50 text-white placeholder-dark-500 text-sm focus:outline-none focus:border-primary-500/50 focus:ring-1 focus:ring-primary-500/20 transition-all"
-                    placeholder="Your name"
+                    placeholder="Votre nom"
                   />
                 </div>
                 <div>
@@ -183,7 +181,7 @@ export default function Contact() {
                       setFormState({ ...formState, email: e.target.value })
                     }
                     className="w-full px-4 py-3 rounded-xl bg-dark-800/50 border border-dark-700/50 text-white placeholder-dark-500 text-sm focus:outline-none focus:border-primary-500/50 focus:ring-1 focus:ring-primary-500/20 transition-all"
-                    placeholder="your@email.com"
+                    placeholder="votre@email.com"
                   />
                 </div>
               </div>
@@ -193,7 +191,7 @@ export default function Contact() {
                   htmlFor="subject"
                   className="block text-dark-300 text-sm font-medium mb-2"
                 >
-                  Subject
+                  Objet
                 </label>
                 <input
                   id="subject"
@@ -204,7 +202,7 @@ export default function Contact() {
                     setFormState({ ...formState, subject: e.target.value })
                   }
                   className="w-full px-4 py-3 rounded-xl bg-dark-800/50 border border-dark-700/50 text-white placeholder-dark-500 text-sm focus:outline-none focus:border-primary-500/50 focus:ring-1 focus:ring-primary-500/20 transition-all"
-                  placeholder="What's this about?"
+                  placeholder="De quoi s'agit-il ?"
                 />
               </div>
 
@@ -224,7 +222,7 @@ export default function Contact() {
                     setFormState({ ...formState, message: e.target.value })
                   }
                   className="w-full px-4 py-3 rounded-xl bg-dark-800/50 border border-dark-700/50 text-white placeholder-dark-500 text-sm focus:outline-none focus:border-primary-500/50 focus:ring-1 focus:ring-primary-500/20 transition-all resize-none"
-                  placeholder="Tell me about your project..."
+                  placeholder="Parlez-moi de votre projet ou opportunité..."
                 />
               </div>
 
@@ -237,7 +235,7 @@ export default function Contact() {
                       className="flex items-center gap-2 text-accent-400 text-sm"
                     >
                       <CheckCircle className="w-4 h-4" />
-                      Message sent successfully!
+                      Message envoyé avec succès !
                     </motion.div>
                   )}
                   {status === "error" && (
@@ -247,7 +245,7 @@ export default function Contact() {
                       className="flex items-center gap-2 text-red-400 text-sm"
                     >
                       <AlertCircle className="w-4 h-4" />
-                      Something went wrong. Try again.
+                      Une erreur est survenue. Réessayez.
                     </motion.div>
                   )}
                 </div>
@@ -260,11 +258,11 @@ export default function Contact() {
                   {status === "loading" ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      Sending...
+                      Envoi...
                     </>
                   ) : (
                     <>
-                      Send Message
+                      Envoyer
                       <Send className="w-4 h-4" />
                     </>
                   )}

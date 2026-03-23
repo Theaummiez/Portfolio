@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X, Shield } from "lucide-react";
 import { navLinks } from "@/lib/data";
 
 export default function Navbar() {
@@ -43,10 +43,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <a href="#home" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl bg-primary-600/20 border border-primary-500/30 flex items-center justify-center group-hover:bg-primary-600/30 transition-all duration-300">
-              <Code2 className="w-5 h-5 text-primary-400" />
+              <Shield className="w-5 h-5 text-primary-400" />
             </div>
             <span className="text-lg font-bold text-white hidden sm:block">
-              Portfolio
+              Tomy T-B
             </span>
           </a>
 
@@ -68,7 +68,7 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-3">
             <a href="#contact" className="btn-primary text-sm">
-              Get in Touch
+              Me contacter
             </a>
           </div>
 
@@ -110,7 +110,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="block btn-primary text-sm text-center mt-4"
               >
-                Get in Touch
+                Me contacter
               </a>
             </div>
           </motion.div>

@@ -22,19 +22,18 @@ export default function Experience() {
           className="mb-16"
         >
           <span className="text-primary-400 font-mono text-sm tracking-wider uppercase mb-3 block">
-            Journey
+            Parcours
           </span>
           <h2 className="section-title text-white">
-            Experience & <span className="gradient-text">Education</span>
+            Expériences & <span className="gradient-text">Formations</span>
           </h2>
           <p className="section-subtitle mt-4">
-            My professional journey and academic background that shaped me as an
-            engineer.
+            Mon parcours professionnel et académique qui forge mon profil d&apos;ingénieur.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Work Experience */}
+          {/* Expériences */}
           <div>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -45,7 +44,7 @@ export default function Experience() {
               <div className="w-10 h-10 rounded-xl bg-primary-500/10 border border-primary-500/20 flex items-center justify-center">
                 <Briefcase className="w-5 h-5 text-primary-400" />
               </div>
-              <h3 className="text-xl font-bold text-white">Work Experience</h3>
+              <h3 className="text-xl font-bold text-white">Expériences Professionnelles</h3>
             </motion.div>
 
             <div className="relative space-y-6 pl-6 border-l-2 border-dark-800">
@@ -57,7 +56,6 @@ export default function Experience() {
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
                   className="relative"
                 >
-                  {/* Timeline dot */}
                   <div className="absolute -left-[31px] top-2 w-4 h-4 rounded-full bg-primary-500 border-4 border-dark-950" />
 
                   <div className="glass-card-hover p-6">
@@ -96,7 +94,7 @@ export default function Experience() {
             </div>
           </div>
 
-          {/* Education */}
+          {/* Formations */}
           <div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -107,7 +105,7 @@ export default function Experience() {
               <div className="w-10 h-10 rounded-xl bg-accent-500/10 border border-accent-500/20 flex items-center justify-center">
                 <GraduationCap className="w-5 h-5 text-accent-400" />
               </div>
-              <h3 className="text-xl font-bold text-white">Education</h3>
+              <h3 className="text-xl font-bold text-white">Formations</h3>
             </motion.div>
 
             <div className="relative space-y-6 pl-6 border-l-2 border-dark-800">

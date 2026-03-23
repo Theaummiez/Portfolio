@@ -47,13 +47,11 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-accent-500/8 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-800/5 rounded-full blur-3xl" />
 
-        {/* Grid pattern */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -63,7 +61,6 @@ export default function Hero() {
           }}
         />
 
-        {/* Floating particles */}
         <FloatingParticle delay={0} x="10%" y="20%" size={6} />
         <FloatingParticle delay={1} x="85%" y="15%" size={4} />
         <FloatingParticle delay={2} x="70%" y="70%" size={8} />
@@ -74,7 +71,6 @@ export default function Hero() {
       </div>
 
       <div className="relative section-container text-center">
-        {/* Status badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,22 +79,20 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse" />
           <span className="text-sm text-dark-300">
-            Open to opportunities
+            Recherche alternance 2026–2029 en Cybersécurité
           </span>
         </motion.div>
 
-        {/* Main heading */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
         >
-          <span className="text-white">Hi, I&apos;m </span>
+          <span className="text-white">Salut, je suis </span>
           <span className="gradient-text">{personalInfo.name}</span>
         </motion.h1>
 
-        {/* Subtitle with typing effect */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,7 +113,6 @@ export default function Hero() {
           {personalInfo.bio}
         </motion.p>
 
-        {/* Location */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -130,7 +123,6 @@ export default function Hero() {
           <span className="text-sm">{personalInfo.location}</span>
         </motion.div>
 
-        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -138,7 +130,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
         >
           <a href="#projects" className="btn-primary text-base px-8 py-4">
-            View My Work
+            Voir mes projets
             <ArrowDown className="w-4 h-4" />
           </a>
           <a
@@ -146,11 +138,10 @@ export default function Hero() {
             className="btn-secondary text-base px-8 py-4"
           >
             <Download className="w-4 h-4" />
-            Download CV
+            Télécharger mon CV
           </a>
         </motion.div>
 
-        {/* Social links */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -158,21 +149,9 @@ export default function Hero() {
           className="flex items-center justify-center gap-4"
         >
           {[
-            {
-              icon: Github,
-              href: personalInfo.github,
-              label: "GitHub",
-            },
-            {
-              icon: Linkedin,
-              href: personalInfo.linkedin,
-              label: "LinkedIn",
-            },
-            {
-              icon: Mail,
-              href: `mailto:${personalInfo.email}`,
-              label: "Email",
-            },
+            { icon: Github, href: personalInfo.github, label: "GitHub" },
+            { icon: Linkedin, href: personalInfo.linkedin, label: "LinkedIn" },
+            { icon: Mail, href: `mailto:${personalInfo.email}`, label: "Email" },
           ].map((social) => (
             <a
               key={social.label}
@@ -188,7 +167,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

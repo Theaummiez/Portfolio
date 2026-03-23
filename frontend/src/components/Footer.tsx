@@ -10,7 +10,6 @@ export default function Footer() {
     <footer className="relative border-t border-dark-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <a href="#home" className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-xl bg-primary-600/20 border border-primary-500/30 flex items-center justify-center">
@@ -19,14 +18,13 @@ export default function Footer() {
               <span className="text-lg font-bold text-white">Portfolio</span>
             </a>
             <p className="text-dark-400 text-sm leading-relaxed">
-              {personalInfo.title}. Building innovative solutions with modern
-              technologies.
+              {personalInfo.title}. Construire des solutions innovantes avec les
+              technologies modernes.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-white font-semibold mb-4">Liens rapides</h4>
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -41,14 +39,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-2">
               <li>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="text-dark-400 text-sm hover:text-primary-400 transition-colors"
+                  className="text-dark-400 text-sm hover:text-primary-400 transition-colors break-all"
                 >
                   {personalInfo.email}
                 </a>
@@ -57,9 +54,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Follow</h4>
+            <h4 className="text-white font-semibold mb-4">Suivez-moi</h4>
             <div className="flex gap-3">
               <a
                 href={personalInfo.github}
@@ -87,15 +83,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-dark-800/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-dark-500 text-sm flex items-center gap-1">
-            &copy; {currentYear} {personalInfo.name}. Built with{" "}
-            <Heart className="w-3 h-3 text-red-400 fill-red-400" /> using
+            &copy; {currentYear} {personalInfo.name}. Fait avec{" "}
+            <Heart className="w-3 h-3 text-red-400 fill-red-400" /> avec
             Next.js & Python
           </p>
           <p className="text-dark-600 text-xs">
-            Designed with Figma &bull; Powered by FastAPI
+            Propulsé par FastAPI & SQLite
           </p>
         </div>
       </div>

@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Future Engineer",
+  title: "Tomy Tavanae-Bouteilley | Portfolio",
   description:
-    "Personal portfolio showcasing projects, skills, and experience of a future engineer.",
+    "Portfolio de Tomy Tavanae-Bouteilley — Étudiant ingénieur informatique & cybersécurité à l'ESEO. Projets, compétences et parcours.",
   keywords: [
     "portfolio",
-    "engineer",
-    "developer",
-    "software",
-    "projects",
-    "skills",
+    "ingénieur",
+    "cybersécurité",
+    "ESEO",
+    "développeur",
+    "informatique",
+    "alternance",
   ],
 };
 

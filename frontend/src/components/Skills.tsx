@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { skills } from "@/lib/data";
 
-const categories = ["Frontend", "Backend", "DevOps", "AI/ML", "Systems"];
+const categories = ["Développement", "Web", "Outils", "Cybersécurité"];
 
 export default function Skills() {
   const ref = useRef(null);
@@ -23,11 +23,11 @@ export default function Skills() {
             Tech Stack
           </span>
           <h2 className="section-title text-white">
-            Skills & <span className="gradient-text">Technologies</span>
+            Compétences & <span className="gradient-text">Technologies</span>
           </h2>
           <p className="section-subtitle mt-4">
-            Technologies and tools I use to bring ideas to life. Always learning
-            and expanding my toolkit.
+            Les technologies et outils que j&apos;utilise au quotidien.
+            Toujours en apprentissage.
           </p>
         </motion.div>
 
@@ -69,7 +69,6 @@ export default function Skills() {
                         </span>
                       </div>
 
-                      {/* Progress bar */}
                       <div className="h-1.5 bg-dark-800 rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}

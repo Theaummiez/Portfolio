@@ -5,42 +5,43 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import {
   Code2,
-  Palette,
+  Shield,
   Server,
   Cpu,
   GraduationCap,
   Briefcase,
+  Globe,
 } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 
 const highlights = [
   {
     icon: Code2,
-    title: "Full-Stack Dev",
-    description: "Building end-to-end applications with modern web technologies",
+    title: "Développement Logiciel",
+    description: "Python, C/C++, C#, JavaScript — applications complètes et projets techniques",
+  },
+  {
+    icon: Shield,
+    title: "Cybersécurité",
+    description: "Sécurité applicative, CTF (PicoCTF, TryHackMe), vulnérabilités courantes",
   },
   {
     icon: Server,
-    title: "Backend & APIs",
-    description: "Designing robust, scalable server architectures and RESTful APIs",
+    title: "Développement Web",
+    description: "React, Next.js, HTML/CSS, APIs REST — interfaces modernes et responsives",
   },
   {
-    icon: Palette,
-    title: "UI/UX Design",
-    description: "Crafting intuitive, beautiful interfaces with accessibility in mind",
-  },
-  {
-    icon: Cpu,
-    title: "Systems Thinking",
-    description: "Understanding low-level systems and performance optimization",
+    icon: Globe,
+    title: "International",
+    description: "Mobilité au Vietnam (USTH), enseignements en anglais, adaptation interculturelle",
   },
 ];
 
 const stats = [
-  { value: "15+", label: "Projects Completed" },
-  { value: "3+", label: "Years Coding" },
-  { value: "8+", label: "Technologies" },
-  { value: "2", label: "Internships" },
+  { value: "3", label: "Projets techniques" },
+  { value: "4+", label: "Langages maîtrisés" },
+  { value: "3", label: "Langues parlées" },
+  { value: "11 ans", label: "Judo (ceinture marron)" },
 ];
 
 export default function About() {
@@ -50,7 +51,6 @@ export default function About() {
   return (
     <section id="about" className="relative">
       <div className="section-container" ref={ref}>
-        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -58,18 +58,16 @@ export default function About() {
           className="mb-16"
         >
           <span className="text-primary-400 font-mono text-sm tracking-wider uppercase mb-3 block">
-            About Me
+            À propos
           </span>
           <h2 className="section-title text-white">
-            Passionate about{" "}
-            <span className="gradient-text">Engineering</span>
+            Passionné par l&apos;
+            <span className="gradient-text">Ingénierie</span>
           </h2>
           <p className="section-subtitle mt-4">{personalInfo.bio}</p>
         </motion.div>
 
-        {/* About content grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Left: Bio and highlights */}
           <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -82,34 +80,28 @@ export default function About() {
                   <GraduationCap className="w-6 h-6 text-primary-400" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold">Engineering Student</h3>
-                  <p className="text-dark-400 text-sm">
-                    Polytechnique Montreal
-                  </p>
+                  <h3 className="text-white font-semibold">Étudiant Ingénieur</h3>
+                  <p className="text-dark-400 text-sm">ESEO — Diplôme d&apos;ingénieur (grade de Master)</p>
                 </div>
               </div>
               <p className="text-dark-300 leading-relaxed">
-                Currently pursuing a Bachelor&apos;s in Software Engineering, I
-                combine academic excellence with hands-on project experience. My
-                passion lies in building scalable systems and creating
-                technology that makes a real impact.
+                En cycle préparatoire intégré à l&apos;ESEO, je combine une
+                formation généraliste en informatique, mathématiques et sciences
+                de l&apos;ingénieur avec une mobilité internationale au Vietnam.
+                Mon objectif : décrocher une alternance en cybersécurité pour
+                2026–2029.
               </p>
               <div className="flex items-center gap-3 mt-6">
                 <div className="w-12 h-12 rounded-xl bg-accent-500/10 border border-accent-500/20 flex items-center justify-center">
                   <Briefcase className="w-6 h-6 text-accent-400" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold">
-                    Seeking Opportunities
-                  </h3>
-                  <p className="text-dark-400 text-sm">
-                    Open for internships & full-time roles
-                  </p>
+                  <h3 className="text-white font-semibold">Recherche Alternance</h3>
+                  <p className="text-dark-400 text-sm">Cybersécurité — 2026 à 2029</p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Highlights */}
             <div className="grid sm:grid-cols-2 gap-4">
               {highlights.map((item, i) => (
                 <motion.div
@@ -120,20 +112,14 @@ export default function About() {
                   className="glass-card-hover p-5 group"
                 >
                   <item.icon className="w-8 h-8 text-primary-400 mb-3 group-hover:text-primary-300 transition-colors" />
-                  <h4 className="text-white font-semibold text-sm mb-1">
-                    {item.title}
-                  </h4>
-                  <p className="text-dark-400 text-xs leading-relaxed">
-                    {item.description}
-                  </p>
+                  <h4 className="text-white font-semibold text-sm mb-1">{item.title}</h4>
+                  <p className="text-dark-400 text-xs leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Right: Stats and visual */}
           <div className="space-y-8">
-            {/* Stats grid */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -159,7 +145,6 @@ export default function About() {
               ))}
             </motion.div>
 
-            {/* Code snippet visual */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -170,45 +155,73 @@ export default function About() {
                 <div className="w-3 h-3 rounded-full bg-red-500/70" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
                 <div className="w-3 h-3 rounded-full bg-green-500/70" />
-                <span className="text-dark-500 text-xs ml-2">about.ts</span>
+                <span className="text-dark-500 text-xs ml-2">profil.py</span>
               </div>
               <pre className="text-dark-300 leading-relaxed">
                 <code>
-                  <span className="text-primary-400">const</span>{" "}
-                  <span className="text-accent-400">engineer</span>{" "}
-                  <span className="text-dark-500">=</span> {`{\n`}
+                  <span className="text-primary-400">class</span>{" "}
+                  <span className="text-accent-400">Ingenieur</span>
+                  <span className="text-dark-500">:</span>{"\n"}
                   {"  "}
-                  <span className="text-dark-400">name</span>
-                  <span className="text-dark-500">:</span>{" "}
-                  <span className="text-amber-400">
-                    &quot;{personalInfo.name}&quot;
-                  </span>
-                  ,{"\n"}
-                  {"  "}
-                  <span className="text-dark-400">role</span>
-                  <span className="text-dark-500">:</span>{" "}
-                  <span className="text-amber-400">
-                    &quot;Software Engineer&quot;
-                  </span>
-                  ,{"\n"}
-                  {"  "}
-                  <span className="text-dark-400">passion</span>
-                  <span className="text-dark-500">:</span>{" "}
-                  <span className="text-amber-400">
-                    &quot;Building the future&quot;
-                  </span>
-                  ,{"\n"}
-                  {"  "}
-                  <span className="text-dark-400">available</span>
-                  <span className="text-dark-500">:</span>{" "}
-                  <span className="text-accent-400">true</span>,{"\n"}
-                  {"  "}
-                  <span className="text-dark-400">coffee</span>
-                  <span className="text-dark-500">:</span>{" "}
-                  <span className="text-primary-400">Infinity</span>,{"\n"}
-                  {`};`}
+                  <span className="text-primary-400">def</span>{" "}
+                  <span className="text-amber-400">__init__</span>
+                  <span className="text-dark-500">(self):</span>{"\n"}
+                  {"    "}self.nom{" "}
+                  <span className="text-dark-500">=</span>{" "}
+                  <span className="text-amber-400">&quot;Tomy T-B&quot;</span>{"\n"}
+                  {"    "}self.ecole{" "}
+                  <span className="text-dark-500">=</span>{" "}
+                  <span className="text-amber-400">&quot;ESEO&quot;</span>{"\n"}
+                  {"    "}self.passion{" "}
+                  <span className="text-dark-500">=</span>{" "}
+                  <span className="text-amber-400">&quot;Cybersécurité&quot;</span>{"\n"}
+                  {"    "}self.dispo{" "}
+                  <span className="text-dark-500">=</span>{" "}
+                  <span className="text-accent-400">True</span>{"\n"}
+                  {"    "}self.cafe{" "}
+                  <span className="text-dark-500">=</span>{" "}
+                  <span className="text-primary-400">float</span>
+                  <span className="text-dark-500">(</span>
+                  <span className="text-amber-400">&quot;inf&quot;</span>
+                  <span className="text-dark-500">)</span>
                 </code>
               </pre>
+            </motion.div>
+
+            {/* Languages & Interests */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="glass-card p-6"
+            >
+              <h4 className="text-white font-semibold mb-4">Langues & Centres d&apos;intérêt</h4>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="text-lg">🇫🇷</span>
+                  <span className="text-dark-300 text-sm">Français — langue maternelle</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-lg">🇬🇧</span>
+                  <span className="text-dark-300 text-sm">Anglais — avancé (mobilité internationale)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-lg">🇪🇸</span>
+                  <span className="text-dark-300 text-sm">Espagnol — intermédiaire</span>
+                </div>
+                <div className="border-t border-dark-700/50 mt-4 pt-4 flex flex-wrap gap-3">
+                  {["🥋 Judo (11 ans)", "🧗 Escalade (4 ans)", "🎹 Piano", "🎸 Guitare", "💻 Code"].map(
+                    (interest) => (
+                      <span
+                        key={interest}
+                        className="px-3 py-1.5 rounded-lg bg-dark-800/50 border border-dark-700/50 text-dark-300 text-xs"
+                      >
+                        {interest}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
