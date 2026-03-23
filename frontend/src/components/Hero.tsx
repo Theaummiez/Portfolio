@@ -89,8 +89,8 @@ export default function Hero({ personalInfo }: { personalInfo: PersonalInfo }) {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
         >
-          <span className="text-white">Bienvenue sur mon </span>
-          <span className="gradient-text">Portfolio</span>
+          <span className="text-white">Bienvenue sur le portfolio de </span>
+          <span className="gradient-text">{personalInfo.name}</span>
         </motion.h1>
 
         <motion.div
