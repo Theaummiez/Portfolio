@@ -9,7 +9,7 @@ import {
   MapPin,
   Download,
 } from "lucide-react";
-import { personalInfo } from "@/lib/data";
+import type { PersonalInfo } from "@/lib/data";
 
 function FloatingParticle({
   delay,
@@ -41,7 +41,7 @@ function FloatingParticle({
   );
 }
 
-export default function Hero() {
+export default function Hero({ personalInfo }: { personalInfo: PersonalInfo }) {
   return (
     <section
       id="home"

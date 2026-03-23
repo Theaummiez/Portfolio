@@ -12,7 +12,7 @@ import {
   Briefcase,
   Globe,
 } from "lucide-react";
-import { personalInfo } from "@/lib/data";
+import type { PersonalInfo } from "@/lib/data";
 
 const highlights = [
   {
@@ -44,7 +44,7 @@ const stats = [
   { value: "11 ans", label: "Judo (ceinture marron)" },
 ];
 
-export default function About() {
+export default function About({ personalInfo }: { personalInfo: PersonalInfo }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 

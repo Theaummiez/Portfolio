@@ -3,9 +3,9 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Briefcase, GraduationCap, MapPin, Calendar } from "lucide-react";
-import { experiences } from "@/lib/data";
+import type { Experience as ExperienceType } from "@/lib/data";
 
-export default function Experience() {
+export default function Experience({ experiences }: { experiences: ExperienceType[] }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 

@@ -2,11 +2,11 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { skills } from "@/lib/data";
+import type { Skill } from "@/lib/data";
 
 const categories = ["Développement", "Web", "Outils", "Cybersécurité"];
 
-export default function Skills() {
+export default function Skills({ skills }: { skills: Skill[] }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 

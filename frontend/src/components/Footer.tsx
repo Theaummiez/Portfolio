@@ -1,9 +1,9 @@
 "use client";
 
 import { Code2, Github, Linkedin, Mail, Heart } from "lucide-react";
-import { personalInfo, navLinks } from "@/lib/data";
+import { navLinks, type PersonalInfo } from "@/lib/data";
 
-export default function Footer() {
+export default function Footer({ personalInfo }: { personalInfo: PersonalInfo }) {
   const currentYear = new Date().getFullYear();
 
   return (
