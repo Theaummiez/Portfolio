@@ -45,7 +45,7 @@ export default function Projects() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-2xl bg-primary-500/20 border border-primary-500/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                     <span className="text-3xl">
-                      {["🧩", "🤖", "🎮"][project.id - 1] ?? "💡"}
+                      {["🧩", "🤖", "🎮", "📡", "❌"][project.id - 1] ?? "💡"}
                     </span>
                   </div>
                 </div>

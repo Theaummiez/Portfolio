@@ -33,12 +33,12 @@ const highlights = [
   {
     icon: Globe,
     title: "International",
-    description: "Mobilité au Vietnam (USTH), enseignements en anglais, adaptation interculturelle",
+    description: "Mobilité au Vietnam, enseignements en anglais, adaptation interculturelle",
   },
 ];
 
 const stats = [
-  { value: "3", label: "Projets techniques" },
+  { value: "5", label: "Projets techniques" },
   { value: "4+", label: "Langages maîtrisés" },
   { value: "3", label: "Langues parlées" },
   { value: "11 ans", label: "Judo (ceinture marron)" },
@@ -64,7 +64,11 @@ export default function About() {
             Passionné par l&apos;
             <span className="gradient-text">Ingénierie</span>
           </h2>
-          <p className="section-subtitle mt-4">{personalInfo.bio}</p>
+          <p className="section-subtitle mt-4">
+            Curieux et déterminé, j&apos;aime comprendre comment les choses
+            fonctionnent et les construire de mes mains — que ce soit du code,
+            de l&apos;électronique ou des systèmes complets.
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -81,15 +85,16 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">Étudiant Ingénieur</h3>
-                  <p className="text-dark-400 text-sm">ESEO — Diplôme d&apos;ingénieur (grade de Master)</p>
+                  <p className="text-dark-400 text-sm">ESEO — Diplôme d&apos;ingénieur (grade Master)</p>
                 </div>
               </div>
               <p className="text-dark-300 leading-relaxed">
-                En cycle préparatoire intégré à l&apos;ESEO, je combine une
-                formation généraliste en informatique, mathématiques et sciences
-                de l&apos;ingénieur avec une mobilité internationale au Vietnam.
-                Mon objectif : décrocher une alternance en cybersécurité pour
-                2026–2029.
+                Tout a commencé en seconde avec l&apos;option Sciences de
+                l&apos;Ingénieur, où j&apos;ai fait mes premiers pas dans la
+                conception technique. La spécialité NSI m&apos;a ensuite confirmé
+                ma passion pour le code. Aujourd&apos;hui en cycle préparatoire à
+                ESEO, je vise une spécialisation en cybersécurité et une
+                alternance de 2026 à 2029.
               </p>
               <div className="flex items-center gap-3 mt-6">
                 <div className="w-12 h-12 rounded-xl bg-accent-500/10 border border-accent-500/20 flex items-center justify-center">
@@ -207,7 +212,7 @@ export default function About() {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-lg">🇪🇸</span>
-                  <span className="text-dark-300 text-sm">Espagnol — intermédiaire</span>
+                  <span className="text-dark-300 text-sm">Espagnol — débutant</span>
                 </div>
                 <div className="border-t border-dark-700/50 mt-4 pt-4 flex flex-wrap gap-3">
                   {["🥋 Judo (11 ans)", "🧗 Escalade (4 ans)", "🎹 Piano", "🎸 Guitare", "💻 Code"].map(

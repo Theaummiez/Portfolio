@@ -31,7 +31,7 @@ export const personalInfo = {
   name: "Tomy Tavanae-Bouteilley",
   title: "Étudiant Ingénieur Informatique & Cybersécurité",
   subtitle: "Recherche alternance 2026–2029",
-  bio: "Étudiant en cycle préparatoire du Diplôme d'ingénieur électronique et informatique (grade de Master) à l'ESEO, actuellement en mobilité internationale à l'USTH (Vietnam). Je recherche une alternance longue durée (2026–2029) dans le domaine de la Cybersécurité afin de mettre en pratique mes compétences et d'acquérir une expérience professionnelle solide au sein d'une équipe innovante.",
+  bio: "Passionné par l'informatique depuis la seconde où j'ai découvert les Sciences de l'Ingénieur, puis confirmé par la spécialité NSI, je poursuis aujourd'hui un diplôme d'ingénieur en électronique et informatique à ESEO. Actuellement en mobilité internationale à l'Université des Sciences de Hanoï (Vietnam), je recherche une alternance longue durée (2026–2029) en Cybersécurité.",
   email: "tomy.tavanaebouteilley@reseau.eseo.fr",
   github: "https://github.com/Theaummiez",
   linkedin: "https://www.linkedin.com/in/tomy-tavanae-bouteilley",
@@ -80,6 +80,32 @@ export const projects: Project[] = [
     live: "#",
     featured: true,
   },
+  {
+    id: 4,
+    title: "App Morse – Swift",
+    description:
+      "Application iOS permettant de convertir du texte en code Morse et de le transmettre visuellement ou par vibration.",
+    longDescription:
+      "Développement d'une application native iOS en Swift avec Xcode : saisie de texte, conversion en code Morse, affichage visuel des signaux et retour haptique pour la transmission.",
+    image: "/images/project-4.svg",
+    tags: ["Swift", "iOS", "Xcode", "UIKit", "Mobile"],
+    github: "https://github.com/Theaummiez",
+    live: "#",
+    featured: true,
+  },
+  {
+    id: 5,
+    title: "Morpion",
+    description:
+      "Mon tout premier projet : un jeu de morpion interactif, les premiers pas dans la programmation.",
+    longDescription:
+      "Premier projet de programmation : développement d'un jeu de morpion (Tic-Tac-Toe) avec gestion des tours, détection de victoire et interface joueur contre joueur.",
+    image: "/images/project-5.svg",
+    tags: ["Python", "Logique", "Premier projet"],
+    github: "https://github.com/Theaummiez",
+    live: "#",
+    featured: true,
+  },
 ];
 
 export const skills: Skill[] = [
@@ -109,7 +135,7 @@ export const experiences: Experience[] = [
     location: "France",
     period: "2024 – 2025 (CDD – 1 mois)",
     description: [
-      "Tri et dispatch de colis dans un environnement logistique à cadence élevée",
+      "Tri et distribution de colis dans un environnement logistique à cadence élevée",
       "Respect des délais et des normes de sécurité",
       "Travail en équipe dans un contexte opérationnel dynamique",
     ],
@@ -157,7 +183,7 @@ export const experiences: Experience[] = [
   {
     id: 5,
     title: "Mobilité Internationale",
-    company: "USTH – University of Science and Technology of Hanoi",
+    company: "Université des Sciences de Hanoï (USTH)",
     location: "Hanoï, Vietnam",
     period: "2025 – 2026",
     description: [

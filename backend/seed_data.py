@@ -21,10 +21,12 @@ def seed():
         title="Étudiant Ingénieur Informatique & Cybersécurité",
         subtitle="Recherche alternance 2026–2029",
         bio=(
-            "Étudiant en cycle préparatoire du Diplôme d'ingénieur électronique "
-            "et informatique (grade de Master) à l'ESEO, actuellement en mobilité "
-            "internationale à l'USTH (Vietnam). Je recherche une alternance longue "
-            "durée (2026–2029) dans le domaine de la Cybersécurité."
+            "Passionné par l'informatique depuis la seconde où j'ai découvert les "
+            "Sciences de l'Ingénieur, puis confirmé par la spécialité NSI, je poursuis "
+            "aujourd'hui un diplôme d'ingénieur en électronique et informatique à ESEO. "
+            "Actuellement en mobilité internationale à l'Université des Sciences de "
+            "Hanoï (Vietnam), je recherche une alternance longue durée (2026–2029) en "
+            "Cybersécurité."
         ),
         email="tomy.tavanaebouteilley@reseau.eseo.fr",
         github_url="https://github.com/Theaummiez",
@@ -66,6 +68,26 @@ def seed():
             featured=True,
             sort_order=3,
         ),
+        Project(
+            title="App Morse – Swift",
+            description="Application iOS permettant de convertir du texte en code Morse et de le transmettre visuellement ou par vibration.",
+            long_description="Développement d'une application native iOS en Swift avec Xcode : saisie de texte, conversion en code Morse, affichage visuel des signaux et retour haptique.",
+            tags=["Swift", "iOS", "Xcode", "UIKit", "Mobile"],
+            github_url="https://github.com/Theaummiez",
+            live_url="#",
+            featured=True,
+            sort_order=4,
+        ),
+        Project(
+            title="Morpion",
+            description="Mon tout premier projet : un jeu de morpion interactif, les premiers pas dans la programmation.",
+            long_description="Premier projet de programmation : développement d'un jeu de morpion (Tic-Tac-Toe) avec gestion des tours, détection de victoire et interface joueur contre joueur.",
+            tags=["Python", "Logique", "Premier projet"],
+            github_url="https://github.com/Theaummiez",
+            live_url="#",
+            featured=True,
+            sort_order=5,
+        ),
     ]
     db.add_all(projects_data)
 
@@ -96,7 +118,7 @@ def seed():
             location="France",
             period="2024 – 2025 (CDD – 1 mois)",
             description=[
-                "Tri et dispatch de colis dans un environnement logistique à cadence élevée",
+                "Tri et distribution de colis dans un environnement logistique à cadence élevée",
                 "Respect des délais et des normes de sécurité",
                 "Travail en équipe dans un contexte opérationnel dynamique",
             ],
@@ -144,7 +166,7 @@ def seed():
         ),
         Experience(
             title="Mobilité Internationale",
-            company="USTH – University of Science and Technology of Hanoi",
+            company="Université des Sciences de Hanoï (USTH)",
             location="Hanoï, Vietnam",
             period="2025 – 2026",
             description=[
