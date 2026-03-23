@@ -21,7 +21,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
     timerRef.current = setInterval(() => {
       setDirection(1);
       setCurrent((prev) => (prev + 1) % total);
-    }, 5000);
+    }, 12000);
   }, [total]);
 
   useEffect(() => {
