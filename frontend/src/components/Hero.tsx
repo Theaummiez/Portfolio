@@ -104,14 +104,16 @@ export default function Hero({ personalInfo }: { personalInfo: PersonalInfo }) {
           </h2>
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-dark-400 text-lg max-w-2xl mx-auto mb-8"
+          className="text-dark-400 text-lg max-w-2xl mx-auto mb-8 space-y-4"
         >
-          {personalInfo.bio}
-        </motion.p>
+          {personalInfo.bio.split("\n").map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+          ))}
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}

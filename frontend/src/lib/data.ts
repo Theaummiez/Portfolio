@@ -44,7 +44,7 @@ export const personalInfo = {
   name: "Tomy Tavanae-Bouteilley",
   title: "Étudiant Ingénieur Informatique & Cybersécurité",
   subtitle: "Recherche alternance 2026–2029",
-  bio: "Étudiant en cycle préparatoire du Diplôme d'ingénieur électronique et informatique (grade de Master) à ESEO, actuellement en mobilité internationale à l'Université des Sciences de Hanoï (Vietnam). Je recherche une alternance longue durée (2026-2029) dans le domaine de la Cybersécurité afin de mettre en pratique mes compétences et d'acquérir une expérience professionnelle solide au sein d'une équipe innovante.",
+  bio: "Je m'appelle Tomy Tavanae Bouteilley. Passionné par l'informatique depuis le lycée, j'ai développé un intérêt marqué pour ce domaine dès la découverte des Sciences de l'Ingénieur, intérêt confirmé par le choix de la spécialité NSI.\nActuellement étudiant en cycle ingénieur en électronique et informatique à l'école ESEO à Dijon, je poursuis ma formation avec un objectif de spécialisation en cybersécurité. Dans le cadre de mon parcours, j'effectue actuellement une mobilité internationale à l'Université des Sciences de Hanoï, au Vietnam.\nJe suis aujourd'hui à la recherche d'une alternance de longue durée (2026-2029) en cybersécurité, afin de mettre en pratique mes compétences et de contribuer activement à des projets concrets au sein d'une entreprise.",
   email: "tomy.tavanaebouteilley@reseau.eseo.fr",
   github: "https://github.com/Theaummiez",
   linkedin: "https://www.linkedin.com/in/tomy-tavanae-bouteilley",
