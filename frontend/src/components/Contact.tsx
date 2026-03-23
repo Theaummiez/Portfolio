@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   Send,
   Mail,
@@ -14,8 +15,13 @@ import {
 } from "lucide-react";
 import type { PersonalInfo } from "@/lib/data";
 
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+
 export default function Contact({ personalInfo }: { personalInfo: PersonalInfo }) {
   const ref = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formState, setFormState] = useState({
     name: "",
@@ -31,6 +37,38 @@ export default function Contact({ personalInfo }: { personalInfo: PersonalInfo }
     e.preventDefault();
     setStatus("loading");
 
+    // 1. Try EmailJS (instant email notification)
+    if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
+      try {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          {
+            from_name: formState.name,
+            from_email: formState.email,
+            subject: formState.subject,
+            message: formState.message,
+          },
+          EMAILJS_PUBLIC_KEY
+        );
+        setStatus("success");
+        setFormState({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+
+        // Also save to backend (non-blocking)
+        fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formState),
+        }).catch(() => {});
+
+        return;
+      } catch {
+        // EmailJS failed, try backend
+      }
+    }
+
+    // 2. Try backend API
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -156,7 +194,7 @@ export default function Contact({ personalInfo }: { personalInfo: PersonalInfo }
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-3"
           >
-            <form onSubmit={handleSubmit} className="glass-card p-6 sm:p-8">
+            <form ref={formRef} onSubmit={handleSubmit} className="glass-card p-6 sm:p-8">
               <div className="grid sm:grid-cols-2 gap-5 mb-5">
                 <div>
                   <label
@@ -167,6 +205,7 @@ export default function Contact({ personalInfo }: { personalInfo: PersonalInfo }
                   </label>
                   <input
                     id="name"
+                    name="from_name"
                     type="text"
                     required
                     value={formState.name}
@@ -186,6 +225,7 @@ export default function Contact({ personalInfo }: { personalInfo: PersonalInfo }
                   </label>
                   <input
                     id="email"
+                    name="from_email"
                     type="email"
                     required
                     value={formState.email}
@@ -207,6 +247,7 @@ export default function Contact({ personalInfo }: { personalInfo: PersonalInfo }
                 </label>
                 <input
                   id="subject"
+                  name="subject"
                   type="text"
                   required
                   value={formState.subject}
@@ -227,6 +268,7 @@ export default function Contact({ personalInfo }: { personalInfo: PersonalInfo }
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   required
                   rows={5}
                   value={formState.message}
