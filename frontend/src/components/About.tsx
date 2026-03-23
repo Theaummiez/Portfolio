@@ -17,7 +17,7 @@ const highlights = [
   {
     icon: Code2,
     title: "Développement Logiciel",
-    description: "Python, C/C++, C#, JavaScript, applications complètes et projets techniques",
+    description: "Python, C/C++, C#, JavaScript — applications complètes et projets techniques",
   },
   {
     icon: Shield,
@@ -27,7 +27,7 @@ const highlights = [
   {
     icon: Server,
     title: "Développement Web",
-    description: "React, Next.js, HTML/CSS, APIs REST, interfaces modernes et responsives",
+    description: "React, Next.js, HTML/CSS, APIs REST — interfaces modernes et responsives",
   },
   {
     icon: Globe,
@@ -126,15 +126,15 @@ export default function About({ personalInfo }: { personalInfo: PersonalInfo }) 
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <span className="text-lg">🇫🇷</span>
-                  <span className="text-dark-300 text-sm">Français, langue maternelle</span>
+                  <span className="text-dark-300 text-sm">Français — langue maternelle</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-lg">🇬🇧</span>
-                  <span className="text-dark-300 text-sm">Anglais, avancé (mobilité internationale)</span>
+                  <span className="text-dark-300 text-sm">Anglais — avancé (mobilité internationale)</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-lg">🇪🇸</span>
-                  <span className="text-dark-300 text-sm">Espagnol, débutant</span>
+                  <span className="text-dark-300 text-sm">Espagnol — débutant</span>
                 </div>
                 <div className="border-t border-dark-700/50 mt-4 pt-4 flex flex-wrap gap-3">
                   {["🥋 Judo", "🧗 Escalade", "🎹 Piano", "🎸 Guitare", "💻 Code"].map(
@@ -166,7 +166,7 @@ export default function About({ personalInfo }: { personalInfo: PersonalInfo }) 
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">Étudiant Ingénieur</h3>
-                  <p className="text-dark-400 text-sm">ESEO, Diplôme d&apos;ingénieur (grade Master)</p>
+                  <p className="text-dark-400 text-sm">ESEO — Diplôme d&apos;ingénieur (grade Master)</p>
                 </div>
               </div>
               <p className="text-dark-300 leading-relaxed">
@@ -183,7 +183,7 @@ export default function About({ personalInfo }: { personalInfo: PersonalInfo }) 
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">Recherche Alternance</h3>
-                  <p className="text-dark-400 text-sm">Cybersécurité, 2026 à 2029</p>
+                  <p className="text-dark-400 text-sm">Cybersécurité — 2026 à 2029</p>
                 </div>
               </div>
             </motion.div>
