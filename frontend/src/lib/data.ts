@@ -171,7 +171,7 @@ export const experiences: Experience[] = [
     id: 4,
     title: "Diplôme d'ingénieur (grade de Master)",
     company: "ESEO",
-    location: "Angers, France",
+    location: "Dijon, France",
     period: "Depuis 2024",
     description: [
       "Cycle préparatoire intégré",
