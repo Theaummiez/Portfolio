@@ -1,16 +1,73 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { Github, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects } from "@/lib/data";
+
+const EMOJIS = ["🧩", "🤖", "🎮", "📡", "❌"];
 
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [showAll, setShowAll] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const displayed = showAll ? projects : projects.filter((p) => p.featured);
+  const total = projects.length;
+
+  const resetAutoplay = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setDirection(1);
+      setCurrent((prev) => (prev + 1) % total);
+    }, 5000);
+  }, [total]);
+
+  useEffect(() => {
+    resetAutoplay();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [resetAutoplay]);
+
+  const goTo = (index: number) => {
+    setDirection(index > current ? 1 : -1);
+    setCurrent(index);
+    resetAutoplay();
+  };
+
+  const prev = () => {
+    setDirection(-1);
+    setCurrent((c) => (c - 1 + total) % total);
+    resetAutoplay();
+  };
+
+  const next = () => {
+    setDirection(1);
+    setCurrent((c) => (c + 1) % total);
+    resetAutoplay();
+  };
+
+  const variants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.95,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? -300 : 300,
+      opacity: 0,
+      scale: 0.95,
+    }),
+  };
+
+  const project = projects[current];
 
   return (
     <section id="projects" className="relative">
@@ -28,96 +85,115 @@ export default function Projects() {
             Mes <span className="gradient-text">Projets</span>
           </h2>
           <p className="section-subtitle mt-4">
-            Une sélection de projets techniques réalisés durant ma formation et à titre personnel.
+            Une sélection de projets techniques réalisés durant ma formation et
+            à titre personnel.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayed.map((project, i) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              className="glass-card-hover group overflow-hidden flex flex-col"
-            >
-              <div className="relative h-48 bg-gradient-to-br from-primary-900/40 to-dark-800 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-2xl bg-primary-500/20 border border-primary-500/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <span className="text-3xl">
-                      {["🧩", "🤖", "🎮", "📡", "❌"][project.id - 1] ?? "💡"}
-                    </span>
+        {/* Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative"
+        >
+          <div className="relative overflow-hidden rounded-2xl">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={current}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="glass-card overflow-hidden"
+              >
+                <div className="grid lg:grid-cols-2">
+                  {/* Left: visual */}
+                  <div className="relative h-64 lg:h-auto min-h-[280px] bg-gradient-to-br from-primary-900/40 to-dark-800 flex items-center justify-center">
+                    <div className="w-24 h-24 rounded-3xl bg-primary-500/20 border border-primary-500/30 flex items-center justify-center">
+                      <span className="text-5xl">
+                        {EMOJIS[project.id - 1] ?? "💡"}
+                      </span>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-dark-900/30 lg:block hidden" />
+
+                    {/* Counter */}
+                    <div className="absolute top-5 right-5 px-3 py-1.5 rounded-full bg-dark-950/60 backdrop-blur-sm border border-dark-700/50 text-dark-300 text-xs font-mono">
+                      {String(current + 1).padStart(2, "0")} /{" "}
+                      {String(total).padStart(2, "0")}
+                    </div>
+                  </div>
+
+                  {/* Right: content */}
+                  <div className="p-8 lg:p-10 flex flex-col justify-center">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                      {project.title}
+                    </h3>
+                    <p className="text-dark-300 leading-relaxed mb-6">
+                      {project.longDescription}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1.5 rounded-lg bg-dark-800/80 border border-dark-700/50 text-dark-300 text-xs font-mono"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex gap-3">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary text-sm"
+                      >
+                        <Github className="w-4 h-4" />
+                        Voir sur GitHub
+                      </a>
+                    </div>
                   </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 to-transparent opacity-60" />
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-                {project.featured && (
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-xs font-medium">
-                    Projet phare
-                  </div>
-                )}
-
-                <div className="absolute inset-0 bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl bg-dark-800 border border-dark-600 flex items-center justify-center text-dark-300 hover:text-white hover:border-primary-500/50 transition-all duration-300"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
-                  {project.live !== "#" && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-xl bg-dark-800 border border-dark-600 flex items-center justify-center text-dark-300 hover:text-white hover:border-primary-500/50 transition-all duration-300"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary-300 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-dark-400 text-sm leading-relaxed mb-4 flex-grow">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 rounded-md bg-dark-800/80 border border-dark-700/50 text-dark-300 text-xs font-mono"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {!showAll && projects.length > 3 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-center mt-12"
+          {/* Navigation arrows */}
+          <button
+            onClick={prev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 lg:-translate-x-6 w-12 h-12 rounded-full bg-dark-900/90 backdrop-blur-sm border border-dark-700/50 flex items-center justify-center text-dark-300 hover:text-white hover:border-primary-500/50 transition-all duration-300 z-10"
           >
-            <button
-              onClick={() => setShowAll(true)}
-              className="btn-secondary group"
-            >
-              Voir tous les projets
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </motion.div>
-        )}
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 lg:translate-x-6 w-12 h-12 rounded-full bg-dark-900/90 backdrop-blur-sm border border-dark-700/50 flex items-center justify-center text-dark-300 hover:text-white hover:border-primary-500/50 transition-all duration-300 z-10"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {projects.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`transition-all duration-300 rounded-full ${
+                  i === current
+                    ? "w-8 h-2.5 bg-primary-500"
+                    : "w-2.5 h-2.5 bg-dark-700 hover:bg-dark-500"
+                }`}
+              />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
