@@ -65,7 +65,7 @@ export default function About({ personalInfo }: { personalInfo: PersonalInfo }) 
           </h2>
           <p className="section-subtitle mt-4">
             Curieux et déterminé, j&apos;aime comprendre comment les choses
-            fonctionnent et les construire de mes mains — que ce soit du code,
+            fonctionnent et les construire de mes mains, que ce soit du code,
             de l&apos;électronique ou des systèmes complets.
           </p>
         </motion.div>

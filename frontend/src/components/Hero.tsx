@@ -89,8 +89,8 @@ export default function Hero({ personalInfo }: { personalInfo: PersonalInfo }) {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
         >
-          <span className="text-white">Bienvenue sur mon </span>
-          <span className="gradient-text">Portfolio</span>
+          <span className="text-white">Bienvenue sur le portfolio de </span>
+          <span className="gradient-text">{personalInfo.name}</span>
         </motion.h1>
 
         <motion.div
@@ -104,14 +104,16 @@ export default function Hero({ personalInfo }: { personalInfo: PersonalInfo }) {
           </h2>
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-dark-400 text-lg max-w-2xl mx-auto mb-8"
+          className="text-dark-400 text-lg max-w-2xl mx-auto mb-8 space-y-4"
         >
-          {personalInfo.bio}
-        </motion.p>
+          {personalInfo.bio.split("\n").map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+          ))}
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
