@@ -79,7 +79,7 @@ export default function Hero({ personalInfo }: { personalInfo: PersonalInfo }) {
         >
           <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse" />
           <span className="text-sm text-dark-300">
-            Recherche alternance 2026–2029 en Cybersécurité
+            Recherche alternance 2026–2029 en Cybersécurité ou Développement Informatique
           </span>
         </motion.div>
 
