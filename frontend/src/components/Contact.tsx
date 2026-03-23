@@ -43,13 +43,25 @@ export default function Contact() {
         setFormState({ name: "", email: "", subject: "", message: "" });
         setTimeout(() => setStatus("idle"), 5000);
       } else {
-        setStatus("error");
-        setTimeout(() => setStatus("idle"), 5000);
+        openMailto();
       }
     } catch {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
+      openMailto();
     }
+  };
+
+  const openMailto = () => {
+    const subject = encodeURIComponent(formState.subject || "Contact Portfolio");
+    const body = encodeURIComponent(
+      `Nom: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`
+    );
+    window.open(
+      `mailto:${personalInfo.email}?subject=${subject}&body=${body}`,
+      "_blank"
+    );
+    setStatus("success");
+    setFormState({ name: "", email: "", subject: "", message: "" });
+    setTimeout(() => setStatus("idle"), 5000);
   };
 
   return (
