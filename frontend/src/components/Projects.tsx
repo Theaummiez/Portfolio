@@ -3,11 +3,11 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Github, ChevronLeft, ChevronRight } from "lucide-react";
-import { projects } from "@/lib/data";
+import type { Project } from "@/lib/data";
 
 const EMOJIS = ["🧩", "🤖", "🎮", "📡", "❌"];
 
-export default function Projects() {
+export default function Projects({ projects }: { projects: Project[] }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [current, setCurrent] = useState(0);

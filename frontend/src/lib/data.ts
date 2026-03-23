@@ -27,6 +27,19 @@ export interface Experience {
   type: "work" | "education";
 }
 
+export interface PersonalInfo {
+  name: string;
+  title: string;
+  subtitle: string;
+  bio: string;
+  email: string;
+  github: string;
+  linkedin: string;
+  location: string;
+  resumeUrl: string;
+  avatarUrl: string;
+}
+
 export const personalInfo = {
   name: "Tomy Tavanae-Bouteilley",
   title: "Étudiant Ingénieur Informatique & Cybersécurité",

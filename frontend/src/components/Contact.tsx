@@ -12,9 +12,9 @@ import {
   AlertCircle,
   Loader2,
 } from "lucide-react";
-import { personalInfo } from "@/lib/data";
+import type { PersonalInfo } from "@/lib/data";
 
-export default function Contact() {
+export default function Contact({ personalInfo }: { personalInfo: PersonalInfo }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formState, setFormState] = useState({
