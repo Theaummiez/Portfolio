@@ -49,7 +49,7 @@ export const personalInfo = {
   github: "https://github.com/Theaummiez",
   linkedin: "https://www.linkedin.com/in/tomy-tavanae-bouteilley",
   location: "Dijon, France",
-  resumeUrl: "#",
+  resumeUrl: "https://drive.google.com/file/d/15jbl5opmLJCdk5QRzPnTAX2S_ZHhAv7n/view?usp=drivesdk",
   avatarUrl: "/images/avatar.svg",
 };
 
