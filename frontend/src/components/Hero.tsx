@@ -137,6 +137,8 @@ export default function Hero({ personalInfo }: { personalInfo: PersonalInfo }) {
           </a>
           <a
             href={personalInfo.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-secondary text-base px-8 py-4"
           >
             <Download className="w-4 h-4" />
