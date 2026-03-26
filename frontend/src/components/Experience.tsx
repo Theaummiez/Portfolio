@@ -25,7 +25,7 @@ export default function Experience({ experiences }: { experiences: ExperienceTyp
             Parcours
           </span>
           <h2 className="section-title text-white">
-            Expériences & <span className="gradient-text">Formations</span>
+            Formations & <span className="gradient-text">Expériences</span>
           </h2>
           <p className="section-subtitle mt-4">
             Mon parcours professionnel et académique qui forge mon profil d&apos;ingénieur.
