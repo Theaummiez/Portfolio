@@ -170,11 +170,10 @@ export const experiences: Experience[] = [
   {
     id: 3,
     title: "Vendanges",
-    company: "Domaines viticoles (Meursault)",
+    company: "Domaine Pascal Prunier-Bonheur & Domaine Renaud Boyer",
     location: "Meursault, France",
     period: "2023 – 2025",
     description: [
-      "Domaine Pascal Prunier-Bonheur & Domaine Renaud Boyer",
       "Travail physique en équipe",
       "Rigueur, endurance et engagement",
     ],
@@ -208,7 +207,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 6,
-    title: "Baccalauréat Général – Mention Assez Bien",
+    title: "Baccalauréat Général",
     company: "Lycée Clos Maire",
     location: "Beaune, France",
     period: "2024",
