@@ -94,6 +94,7 @@ export default function Experience({ experiences }: { experiences: ExperienceTyp
       
               ))}
             </div>
+            </div>
             {/* Expériences */}
             <div>
               <motion.div
@@ -155,7 +156,7 @@ export default function Experience({ experiences }: { experiences: ExperienceTyp
               </div>
             </div>
             
-          </div>
+          
         </div>
       </div>
     </section>
