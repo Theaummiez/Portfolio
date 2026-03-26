@@ -26,8 +26,8 @@ export default function Skills({ skills }: { skills: Skill[] }) {
             Compétences & <span className="gradient-text">Technologies</span>
           </h2>
           <p className="section-subtitle mt-4">
-            Les technologies et outils que j&apos;utilise au quotidien.
-            Toujours en apprentissage.
+            Outils et technologies utilisés au quotidien, tout en continuant d’apprendre et de me 
+            perfectionner.
           </p>
         </motion.div>
 
