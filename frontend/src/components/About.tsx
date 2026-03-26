@@ -64,9 +64,9 @@ export default function About({ personalInfo }: { personalInfo: PersonalInfo }) 
             <span className="gradient-text">Ingénierie</span>
           </h2>
           <p className="section-subtitle mt-4">
-            Curieux et déterminé, j&apos;aime comprendre comment les choses
-            fonctionnent et les construire de mes mains, que ce soit du code,
-            de l&apos;électronique ou des systèmes complets.
+            Curieux et déterminé, j&apos;aime comprendre le fonctionnement
+            des choses et les réaliser moi-même, qu&apos;il s&apos;agisse de
+            code, de montages électroniques ou de systèmes complets.
           </p>
         </motion.div>
 
@@ -170,12 +170,12 @@ export default function About({ personalInfo }: { personalInfo: PersonalInfo }) 
                 </div>
               </div>
               <p className="text-dark-300 leading-relaxed">
-                Tout a commencé en seconde avec l&apos;option Sciences de
-                l&apos;Ingénieur, où j&apos;ai fait mes premiers pas dans la
-                conception technique. La spécialité NSI m&apos;a ensuite confirmé
-                ma passion pour le code. Aujourd&apos;hui en cycle préparatoire à
-                ESEO, je vise une spécialisation en cybersécurité et une
-                alternance de 2026 à 2029.
+                Tout a commencé en classe de seconde avec l&apos;option Sciences de
+                l&apos;Ingénieur, où j&apos;ai fait mes premiers pas dans la conception technique.
+                La spécialité NSI a ensuite renforcé mon intérêt pour le (code) développement
+                informatique. Aujourd’hui en cycle préparatoire à l’ESEO, je m&apos;oriente vers 
+                une spécialisation en cybersécurité et je recherche une alternance pour la 
+                période 2026 à 2029.
               </p>
               <div className="flex items-center gap-3 mt-6">
                 <div className="w-12 h-12 rounded-xl bg-accent-500/10 border border-accent-500/20 flex items-center justify-center">
@@ -183,7 +183,7 @@ export default function About({ personalInfo }: { personalInfo: PersonalInfo }) 
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">Recherche Alternance</h3>
-                  <p className="text-dark-400 text-sm">Cybersécurité — 2026 à 2029</p>
+                  <p className="text-dark-400 text-sm">Cybersécurité ou développement informatque — 2026 à 2029</p>
                 </div>
               </div>
             </motion.div>
