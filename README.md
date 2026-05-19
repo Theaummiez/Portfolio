@@ -1,6 +1,6 @@
 # Portfolio
 
-Portfolio personnel developpé avec Next.js (frontend) et FastAPI (backend). Interface responsive avec theme sombre, formulaire de contact fonctionnel et gestion de contenu via API REST.
+Portfolio personnel développé avec Next.js (frontend) et FastAPI (backend). Application FullStack responsive avec formulaire de contact et gestion de contenu via API REST.
 
 ## Stack
 
@@ -24,9 +24,10 @@ Portfolio personnel developpé avec Next.js (frontend) et FastAPI (backend). Int
 
 - Sections : Hero, A propos, Projets (carrousel), Competences, Parcours, Contact
 - Formulaire de contact avec notifications email (EmailJS) et stockage en base
-- Donnees gerees via API REST (CRUD complet) avec fallback sur donnees statiques
-- Interface responsive, theme sombre
-- Animations declenchees au scroll (Framer Motion)
+- Donnees gerees via API REST (CRUD complet) avec systeme de fallback sur donnees statiques
+- Interface responsive
+- Theme sombre
+- Framer Motion
 
 ## Installation
 
@@ -64,6 +65,6 @@ Backend : http://localhost:8000
 
 ## Live Demo
 
-- Frontend : https://tomy-tavanae-portfolio.vercel.app
-- API : https://portfolio-api-2461.onrender.com
-- Docs API : https://portfolio-api-2461.onrender.com/docs
+Frontend : https://tomy-tavanae-portfolio.vercel.app
+API : https://portfolio-api-2461.onrender.com
+Docs API : https://portfolio-api-2461.onrender.com/docs
